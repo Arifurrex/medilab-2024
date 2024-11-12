@@ -19,6 +19,7 @@
                 width: 100%;
                 z-index: 9;
                 background: variable.$white-color;
+
             }
         }
 
@@ -63,9 +64,11 @@
         padding-left: 5px;
         padding-top: 10px;
         padding-bottom: 12px;
+        position: relative;
 
         li {
             list-style: none;
+            position: relative;
 
             a {
                 font-size: 16px;
@@ -73,7 +76,27 @@
                 line-height: 39px;
                 display: block;
             }
+            ul {
+                display: none;
+                font-size: 16px;
+                color: variable.$normal-color;
+                line-height: 39px;
+                position: absolute;
+                background-color: variable.$white-color;
+                left: 100%;
+                top: 0;
+                width: 100%;
+                z-index: 99;
+            }
+
+            /* Show ul on hover only on large screens */
+            @media (min-width: 1024px) {
+                &:hover ul {
+                    display: block; /* Show the submenu on hover for large screens */
+                }
+            }
         }
+
         .category_showAll_Button {
             font-size: 14px;
             color: variable.$normal-color;

@@ -23,7 +23,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 // frontend
-Route::get('/', [PagesController::class, 'index'])->name('index');
+Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/shop', [PagesController::class, 'shop'])->name('shop');
 
 // product routes
 Route::get('/product', [ProductsController::class, 'index'])->name('product.index');

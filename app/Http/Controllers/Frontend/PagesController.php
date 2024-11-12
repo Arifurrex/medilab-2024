@@ -9,11 +9,18 @@ use App\Models\Frontend\Category;
 
 class PagesController extends Controller
 {
-    public function index()
+    public function home()
     {
         $data['products'] = Products::orderBy('id', 'desc')->get();
         $data['categories'] = Category::with('subcategories')->whereNull('parent_id')->get();
-        $data['featuredProducts_categories'] = Category::whereIn('id', [72, 73, 74,78])->get();
+        $data['featuredProducts_categories'] = Category::whereIn('id', [72, 73, 74, 78])->get();
         return view('frontend.index', $data);
+    }
+
+    public function shop()
+    {
+        $data['categories'] = Category::with('subcategories')->whereNull('parent_id')->get();
+        $data['featuredProducts_categories'] = Category::whereIn('id', [72, 73, 74, 78])->get();
+        return view('frontend.shop-grid', $data);
     }
 }
