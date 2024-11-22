@@ -12,13 +12,41 @@
         .hero__categories {
             position: relative;
             ul {
-                display: none;
-                position: absolute;
-                left: 0;
-                top: 46px;
+                // display: none;
                 width: 100%;
                 z-index: 9;
                 background: variable.$white-color;
+
+                @media (min-width: 850px) {
+                    li {
+                        position: relative;
+                        ul {
+                            visibility: hidden;
+                            position: absolute;
+                            left: 0;
+                            top: 46px;
+                        }
+                        &:hover {
+                            ul {
+                                position: absolute;
+                                top: 0;
+                                left: 100%;
+                                visibility: visible;
+                                z-index: 99;
+                                li {
+                                    line-height: 39px;
+                                    &:hover {
+                                        color: variable.$primary-color;
+                                        transform: scale(1.01);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                @media (max-width: 850px) {
+
+                }
             }
         }
 
@@ -60,33 +88,26 @@
 .hero__categories {
     ul {
         border: 1px solid variable.$border;
-        padding-left: 5px;
+        padding-left: 0px;
         padding-top: 10px;
         padding-bottom: 12px;
-        position: relative;
-
         li {
             list-style: none;
-            position: relative;
+            cursor: pointer;
 
             a {
                 font-size: 16px;
                 color: variable.$normal-color;
-                @include mixins.transition(all, 0.3s);
                 line-height: 39px;
                 display: block;
+                @include mixins.transition(all, 0.3s);
             }
             .subCategory {
-                position: absolute;
-                left: 115%;
-                top: 10px;
                 background-color: variable.$white-color;
                 width: 100%;
                 z-index: 99;
-                @include mixins.transition(all, 0.3s);
-                opacity: 0;
-                visibility: hidden;
-
+                @include mixins.transition(all, 0.6s);
+                padding: 0 2rem;
                 font-size: 16px;
                 color: variable.$normal-color;
                 line-height: 39px;
@@ -95,6 +116,7 @@
                     &:hover {
                         & > a {
                             color: variable.$primary-color;
+                            transform: scale(1.05);
                         }
                     }
                 }
@@ -104,18 +126,20 @@
                     color: variable.$primary-color;
                 }
             }
-
-            &:hover {
-                .subCategory {
-                    visibility: visible;
-                    top: 0px;
-                    left: 100%;
-                    opacity: 1;
-                }
-                & > a {
-                    color: variable.$primary-color;
-                }
-            }
+            /* Hover effect only for small devices */
+            // @media (min-width: 600px) {
+            //     &:hover {
+            //         .subCategory {
+            //             visibility: visible;
+            //             top: 0px;
+            //             left: 100%;
+            //             opacity: 1;
+            //         }
+            //         & > a {
+            //             color: variable.$primary-color;
+            //         }
+            //     }
+            // }
         }
 
         .category_showAll_Button {
@@ -129,6 +153,66 @@
             border: none;
             width: 100%;
         }
+    }
+}
+// large display category
+@media (min-width: 850px) {
+    .hero__category__large-device {
+        display: block;
+    }
+    .hero__category__small-device {
+        display: none;
+    }
+    .hero__categories {
+        ul {
+            position: relative;
+            padding-left: 5px;
+
+            li {
+                position: relative;
+
+                .subCategory {
+                    position: absolute;
+                    left: 115%;
+                    top: 10px;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                &:hover {
+                    .subCategory {
+                        visibility: visible;
+                        top: 0px;
+                        left: 100%;
+                        opacity: 1;
+                    }
+                    & > a {
+                        color: variable.$primary-color;
+                    }
+                }
+            }
+
+            .category_showAll_Button {
+                font-size: 14px;
+                color: variable.$normal-color;
+                background: transparent;
+                font-weight: 800;
+                text-transform: uppercase;
+                display: block;
+                padding: 13px 30px 12px;
+                border: none;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// small display category
+@media (max-width: 849px) {
+    .hero__category__large-device {
+        display: none;
+    }
+    .hero__category__small-device {
+        display: block;
     }
 }
 

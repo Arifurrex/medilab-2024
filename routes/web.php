@@ -25,11 +25,10 @@ require __DIR__ . '/auth.php';
 // frontend
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/shop', [PagesController::class, 'shop'])->name('shop');
+Route::get('/shop_details/{slug}', [PagesController::class, 'shop_details'])->name('shop_details');
+Route::get('/category/{slug}',[PagesController::class,'categoryIndex'])->name('category.index');
 
 // product routes
 Route::get('/product', [ProductsController::class, 'index'])->name('product.index');
-
-
-
 
 // backend

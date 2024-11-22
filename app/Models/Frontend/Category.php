@@ -19,4 +19,10 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id')->with('subcategories');
     }
+
+    // Define the relationship between Category and Product
+    public function products()
+    {
+        return $this->hasMany(Products::class);
+    }
 }

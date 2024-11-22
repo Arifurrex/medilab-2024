@@ -1,6 +1,22 @@
-@extends('frontend.layouts.master2')
+@extends('frontend.layouts.master')
 
 @section('content')
+
+@include('frontend.layouts._navHumberger')
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+            @include('frontend.components.hero_categories', ['categories' => $categories])
+            </div>
+            <div class="col-lg-9">
+                @include('frontend.components.hero_search')
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">

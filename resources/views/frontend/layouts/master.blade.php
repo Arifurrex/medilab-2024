@@ -113,15 +113,17 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
 
+    @vite([
+    'resources/js/jquery-3.3.1.min.js',
+    'resources/js/bootstrap.min.js',
+    'resources/js/jquery.nice-select.min.js',
+    'resources/js/jquery-ui.min.js',
+    'resources/js/jquery.slicknav.js',
+    'resources/js/mixitup.min.js',
+    'resources/js/owl.carousel.min.js',
+    'resources/js/main.js'
+])
 
 
 </body>
